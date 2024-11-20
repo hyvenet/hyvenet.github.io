@@ -3,9 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HyveNet</title>
+    <title>Document</title>
 </head>
 <body>
-    
+    <script>
+        function mask() {
+            const w = window.open() // access the "about:blank" window you've opened
+            w.document.body.innerHTML = ""
+            const jquery = w.document.createElement("script")
+            jquery.src = "https://code.jquery.com/jquery-3.7.1.min.js"
+            w.document.head.appendChild(jquery)
+            const replaceScript = w.document.createElement("script")
+            replaceScript.src = "replacescript.js"
+            w.document.head.appendChild(replaceScript)
+        }
+        mask()
+    </script>
 </body>
 </html>
