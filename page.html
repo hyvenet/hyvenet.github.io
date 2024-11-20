@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | HyveNet</title>
+</head>
+<body>
+    <style>
+        @font-face {
+            font-family: mainFont;
+            src: url(font.ttf);
+        }
+        body {
+            font-family: mainFont;
+            margin: 0px;
+        }
+        .topbar {
+            width: 100vw;
+            height: 2vh;
+            background-color: #6a91a1;
+            border-color: #14222a;
+            border-width: 0.3vh;
+            border-style: solid;
+        }
+        .gamebutton {
+            aspect-ratio: 429 / 101;
+            width: 450.23px;
+            background-repeat:round;
+            background-image: url("content/images/buttonlarge.png");
+            margin: auto;
+            margin-top: 12vh;
+        }
+        .gamebutton:hover{
+            box-shadow: rgba(255, 255, 255, 0.36) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 0px;
+        }
+        .icon {
+            float: left;
+            aspect-ratio: 1 / 1;
+            height: 80px;
+            border-style: solid;
+            border-width: 2px;
+            margin-left: 12px;
+            margin-top: 11px;
+            border-color: #555555;
+        }
+        .labeltext {
+            padding-left: 235px;
+            padding-top: 40px;
+        }
+    </style>
+    <div class="topbar"></div>
+    <div class="gamebutton">
+        <img src="content/images/gamesicon.jpg" class="icon"></img>
+        <h1 class="labeltext">Games</h1>
+    </div>
+</body>
+</html>
