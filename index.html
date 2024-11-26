@@ -6,7 +6,12 @@
     <title>Document</title>
 </head>
 <body>
+    <button onclick="mask()">Open in about:blank</button>
+    <button onclick="opennormal()">Open in normal page</button>
     <script>
+        function opennormal() {
+            document.location.href = "hyvenet.github.io/page.html";
+        }
         function mask() {
             const w = window.open() // access the "about:blank" window you've opened
             w.document.body.innerHTML = ""
@@ -17,7 +22,6 @@
             replaceScript.src = "replacescript.js"
             w.document.head.appendChild(replaceScript)
         }
-        mask()
     </script>
 </body>
 </html>

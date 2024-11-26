@@ -1,1 +1,1 @@
-$("html").load("page.html");
+document.getElementsByTagName("html").load("page.html");
