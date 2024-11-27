@@ -1,4 +1,4 @@
-fetch('/page.html')
+fetch('hyvenet.github.io/page.html')
   .then(function(response) {
     return response.text();
   })
