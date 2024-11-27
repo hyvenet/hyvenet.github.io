@@ -1,1 +1,7 @@
-document.getElementsByTagName("html").load("page.html");
+fetch('/page.html')
+  .then(function(response) {
+    return response.text();
+  })
+  .then(function(body) {
+    document.getElementsByTagName("html").innerHTML = body;
+  });
