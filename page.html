@@ -1,58 +1,254 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home | HyveNet</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home | HyveNet</title>
+  <style>
+    body {
+      margin: 0px;
+      padding: 0px;
+    }
+
+    nav {
+      height: 8vh;
+    }
+
+    button {
+      height: 5vh;
+      width: 5vh;
+      margin-top: 1.5vh;
+      margin-left: 1.5vh;
+      border-radius: 100%;
+      border-style: solid;
+    }
+
+    .iframe-container {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(120deg, #e0f7fa, #f1e4fc);
+      margin: 0px;
+      padding: 0px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 92vh;
+      width: 100vw;
+      overflow: hidden; /* Prevent scrollbars */
+    }
+
+    .carousel-container {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(120deg, #e0f7fa, #f1e4fc);
+      margin: 0px;
+      padding: 0px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 92vh;
+      width: 100vw;
+      overflow: hidden; /* Prevent scrollbars */
+    }
+
+    .carousel {
+      width: 100vw;
+      max-width: 100vw;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .carousel-track {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .carousel-item {
+      flex: 0 0 20%;
+      width: calc(20% - 6em);
+      text-align: center;
+      padding: 20px;
+      background: #fff;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      margin: 0 3em; /* Spacing between items */
+    }
+
+    .carousel-item img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+    }
+
+    .carousel-buttons {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      transform: translateY(-50%);
+    }
+
+    .carousel-button {
+      background: rgba(0, 0, 0, 0.5);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      padding: 15px;
+      cursor: pointer;
+      font-size: 24px;
+      transition: 0.3s;
+    }
+
+    .carousel-button:hover {
+      background: rgba(0, 0, 0, 0.8);
+    }
+
+    .carousel-item:last-child {
+      margin-right: 0; /* Ensure last item fits properly */
+    }
+
+    .coming-soon {
+        flex: 0 0 20%;
+        width: calc(20% - 6em);
+        text-align: center;
+        padding: 20px;
+        border-radius: 15px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        margin: 0 3em; /* Spacing between items */
+        background-color: #0b2838;
+        color: #d7e7ea;
+    }
+
+    .coming-soon h3 {
+        margin-top: 30%;
+        padding: 0%;
+        font-size: 3vw;
+    }
+  </style>
 </head>
 <body>
-    <style>
-        @font-face {
-            font-family: mainFont;
-            src: url(font.ttf);
-        }
-        body {
-            font-family: mainFont;
-            margin: 0px;
-        }
-        .topbar {
-            width: 100vw;
-            height: 2vh;
-            background-color: #6a91a1;
-            border-color: #14222a;
-            border-width: 0.3vh;
-            border-style: solid;
-        }
-        .gamebutton {
-            aspect-ratio: 429 / 101;
-            width: 450.23px;
-            background-repeat:round;
-            background-image: url("content/images/buttonlarge.png");
-            margin: auto;
-            margin-top: 12vh;
-        }
-        .gamebutton:hover{
-            box-shadow: rgba(255, 255, 255, 0.36) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 0px;
-        }
-        .icon {
-            float: left;
-            aspect-ratio: 1 / 1;
-            height: 80px;
-            border-style: solid;
-            border-width: 2px;
-            margin-left: 12px;
-            margin-top: 11px;
-            border-color: #555555;
-        }
-        .labeltext {
-            padding-left: 235px;
-            padding-top: 40px;
-        }
-    </style>
-    <div class="topbar"></div>
-    <div class="gamebutton">
-        <img src="content/images/gamesicon.jpg" class="icon"></img>
-        <h1 class="labeltext">Games</h1>
+  <nav>
+    <button onclick="logout()"><img src="images/icons/logout.svg"></button>
+    <button onclick="leave()"><img src="images/icons/emergency.svg"></button>
+    <button onclick="home()"><img src="images/icons/home.svg"></button>
+  </nav>
+  <div id="carousel" class="carousel-container">
+    <div class="carousel">
+      <div class="carousel-track">
+        <div onclick="slope()" class="carousel-item">
+          <img src="images/slope.png" alt="Image 1">
+          <h3>Slope</h3>
+          <p>Endless ball-rolling obstacle course</p>
+        </div>
+        <div onclick="crossy()" class="carousel-item">
+          <img src="images/crossy.png" alt="Image 2">
+          <h3>Crossy Road</h3>
+          <p>Cross roads, avoid cars, survive</p>
+        </div>
+        <div onclick="suika()" class="carousel-item">
+          <img src="images/suika.png" alt="Image 3">
+          <h3>Suika Game</h3>
+          <p>Merge fruit to grow bigger.</p>
+        </div>
+        <div class="carousel-item coming-soon">
+          <h3>Coming</br>Soon</h3>
+        </div>
+        <div class="carousel-item coming-soon">
+          <h3>Coming</br>Soon</h3>
+        </div>
+        <div class="carousel-item coming-soon">
+          <h3>Coming</br>Soon</h3>
+        </div>
+        <div class="carousel-item coming-soon">
+          <h3>Coming</br>Soon</h3>
+        </div>
+      </div>
+      <div class="carousel-buttons">
+        <button class="carousel-button" id="prev">&lt;</button>
+        <button class="carousel-button" id="next">&gt;</button>
+      </div>
     </div>
+  </div>
+  <div id="iframe" class="iframe-container">
+    <iframe id="gameiframe" height="100%" width="100%"></iframe>
+  </div>
+
+  <script>
+    const track = document.querySelector('.carousel-track');
+    const items = document.querySelectorAll('.carousel-item');
+    const prevButton = document.getElementById('prev');
+    const nextButton = document.getElementById('next');
+    let currentIndex = 0;
+
+    function updateCarousel() {
+      const itemWidth = items[0].offsetWidth + 20; // Includes margin
+      const totalItems = items.length;
+      const visibleItems = Math.floor(document.querySelector('.carousel').offsetWidth / itemWidth);
+      const maxIndex = totalItems - visibleItems;
+
+      if (currentIndex > maxIndex) currentIndex = maxIndex; // Prevent overflow
+      if (currentIndex < 0) currentIndex = 0; // Prevent underflow
+
+      track.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
+    }
+
+    prevButton.addEventListener('click', () => {
+      currentIndex -= 1;
+      updateCarousel();
+    });
+
+    nextButton.addEventListener('click', () => {
+      currentIndex += 1;
+      updateCarousel();
+    });
+
+    window.addEventListener('resize', updateCarousel); // Recalculate on resize
+    updateCarousel(); // Initialize
+  </script>
+  <script>
+    function getCookie(cname) {
+      let name = cname + "=";
+      let decodedCookie = decodeURIComponent(document.cookie);
+      let ca = decodedCookie.split(';');
+      for(let i = 0; i <ca.length; i++) {
+        let c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+          return c.substring(name.length, c.length);
+        }
+      }
+      return "";
+    }
+    if (getCookie("authorised") != "True") {
+      document.location.href = "index.html";
+    }
+    function logout() {
+      document.cookie = "authorised=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+      document.location.href = "index.html";
+    }
+    function leave() {
+      window.location.replace("http://www.google.com");
+    }
+    function home() {
+      document.getElementById('carousel').style.display = 'flex';
+      document.getElementById('iframe').style.display = 'none';
+    }
+    function slope() {
+      document.getElementById('carousel').style.display = 'none';
+      document.getElementById('iframe').style.display = 'flex';
+      document.getElementById('gameiframe').src = "https://hyvenet.github.io/games/slope/"
+    }
+    function crossy() {
+      document.getElementById('carousel').style.display = 'none';
+      document.getElementById('iframe').style.display = 'flex';
+      document.getElementById('gameiframe').src = "https://hyvenet.github.io/games/crossy/"
+    }
+    function suika() {
+      document.getElementById('carousel').style.display = 'none';
+      document.getElementById('iframe').style.display = 'flex';
+      document.getElementById('gameiframe').src = "https://hyvenet.github.io/games/suika/"
+    }
+  </script>
 </body>
 </html>
