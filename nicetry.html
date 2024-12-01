@@ -120,31 +120,8 @@
             }
         }
     </style>
-    <h1>Please enter the password to access HyveNet</h1>
-    <p id="status"></p>
-    <div class="codebox">
-        <input type="password" id="txt" />
-        <input class="submit" type="button" id="btn" value="Login" />
-    </div>
-    <script>
-        var code = document.getElementById("txt");
-        function setCookie(cname, cvalue, exdays) {
-            const d = new Date();
-            d.setTime(d.getTime() + (exdays*24*60*60*1000));
-            let expires = "expires="+ d.toUTCString();
-            document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-        }
-        function login() {
-            if (code.value == "Banana") {
-                document.getElementById('status').innerHTML = "Login success! Welcome to HyveNet";
-                setCookie("authorised", "True", 1);
-                document.location.href = "page.html";
-            } else {
-                document.getElementById('status').innerHTML = "Oops, thats not the password!";
-            }
-        }
-        document.getElementById("btn").addEventListener('click', login);
-    </script>
+    <h1>Nice try, You need to be logged in to see this</h1>
+    <p>401 Unauthorised</p>
     <script>
         function getCookie(cname) {
           let name = cname + "=";
