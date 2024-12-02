@@ -123,13 +123,11 @@
     <h1>Please enter your username and password to access HyveNet</h1>
     <p id="status"></p>
     <div class="codebox">
-        <input type="text" id="user">Username:</input>
-        <input type="password" id="pass">Password</input>
+        <input type="text" id="user" placeholder="Username"></input>
+        <input type="password" id="pass" placeholder="Password">Password</input>
         <input class="submit" type="button" id="btn" value="Login"></input>
     </div>
     <script>
-        var pass = document.getElementById("pass")
-        var code = pass.concat(document.getElementById("user"))
         function setCookie(cname, cvalue, exdays) {
             const d = new Date();
             d.setTime(d.getTime() + (exdays*24*60*60*1000));
@@ -137,6 +135,9 @@
             document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
         }
         function login() {
+            var pass = document.getElementById("pass").value
+            var code = pass.concat(document.getElementById("user").value)
+            console.log(code)
             if (["orangehugo", "quibliusemile", "strawberryisaiah"].includes(code)) {
                 document.getElementById('status').innerHTML = "Login success! Welcome to HyveNet";
                 setCookie("authorised", "True", 1);
