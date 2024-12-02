@@ -259,9 +259,17 @@
   </script>
   <script src="https://cdn.jsdelivr.net/npm/appwrite@16.0.2"></script>
   <script>
-      const { Client } = Appwrite;
-      const client = new Client();
-      client.setProject('hyvenet');
+    // Initialize Appwrite
+    const appwrite = new Appwrite();
+
+    appwrite
+      .setEndpoint('https://cloud.appwrite.io/v1')
+      .setProject('hyvenet');
+
+    // Initialize services
+    const account = appwrite.account;
+    const database = appwrite.database;
+    const storage = appwrite.storage;
   </script>
 </body>
 </html>
