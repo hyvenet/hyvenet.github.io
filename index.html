@@ -124,7 +124,7 @@
     <p id="status"></p>
     <div class="codebox">
         <input type="text" id="user" placeholder="Username"></input>
-        <input type="password" id="pass" placeholder="Password">Password</input>
+        <input type="password" id="pass" placeholder="Password"></input>
         <input class="submit" type="button" id="btn" value="Login"></input>
     </div>
     <script>
@@ -137,7 +137,6 @@
         function login() {
             var pass = document.getElementById("pass").value
             var code = pass.concat(document.getElementById("user").value)
-            console.log(code)
             if (["orangehugo", "quibliusemile", "strawberryisaiah"].includes(code)) {
                 document.getElementById('status').innerHTML = "Login success! Welcome to HyveNet";
                 setCookie("authorised", "True", 1);
