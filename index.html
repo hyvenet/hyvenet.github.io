@@ -137,7 +137,7 @@
         function login() {
             var pass = document.getElementById("pass").value
             var code = pass.concat(document.getElementById("user").value)
-            if (["orangeHugo", "quibliusEmile", "strawberryIsaiah"].includes(code)) {
+            if (["orangeHugo", "quibliusEmile", "strawberryIsaiah", "papayaJosh"].includes(code)) {
                 document.getElementById('status').innerHTML = "Login success! Welcome to HyveNet";
                 setCookie("authorised", "True", 1);
                 document.location.href = "page.html";
