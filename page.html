@@ -228,8 +228,8 @@
     }
     while (true) {
       var date = new Date();
-      var separator = ":"
-      document.getElementById("time").innerText = date.getHours.concat(separator.concat(date.getMinutes.concat(separator.concat(date.getSeconds))))
+      var separator = ":";
+      document.getElementById("time").innerText = date.getHours.concat(separator.concat(date.getMinutes.concat(separator.concat(date.getSeconds))));
     }
     function logout() {
       document.cookie = "authorised=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
