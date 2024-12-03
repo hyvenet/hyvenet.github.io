@@ -125,12 +125,12 @@
     }
   </style>
 </head>
-<body>
+<body onload="startTime()">
   <nav>
     <button onclick="logout()"><img src="images/icons/logout.svg"></button>
     <button onclick="leave()"><img src="images/icons/emergency.svg"></button>
     <button onclick="home()"><img src="images/icons/home.svg"></button>
-    <button><p id="time"></p></button>
+    <button><div id="txt"></div></button>
   </nav>
   <div id="carousel" class="carousel-container">
     <div class="carousel">
@@ -226,11 +226,6 @@
     if (getCookie("authorised") != "True") {
       document.location.href = "index.html";
     }
-    while (true) {
-      var date = new Date();
-      var separator = ":";
-      document.getElementById("time").innerText = date.getHours.concat(separator.concat(date.getMinutes.concat(separator.concat(date.getSeconds))));
-    }
     function logout() {
       document.cookie = "authorised=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
       document.location.href = "index.html";
@@ -277,5 +272,23 @@
     const database = appwrite.database;
     const storage = appwrite.storage;
   </script>
+  <script>
+    function startTime() {
+      const today = new Date();
+      let h = today.getHours();
+      let m = today.getMinutes();
+      let s = today.getSeconds();
+      m = checkTime(m);
+      s = checkTime(s);
+      document.getElementById('txt').innerHTML =  h + ":" + m + ":" + s;
+      setTimeout(startTime, 1000);
+    }
+    
+    function checkTime(i) {
+      if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+      return i;
+    }
+    </script>
+    
 </body>
 </html>
