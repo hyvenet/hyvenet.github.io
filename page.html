@@ -130,6 +130,7 @@
     <button onclick="logout()"><img src="images/icons/logout.svg"></button>
     <button onclick="leave()"><img src="images/icons/emergency.svg"></button>
     <button onclick="home()"><img src="images/icons/home.svg"></button>
+    <button><p id="time"></p></button>
   </nav>
   <div id="carousel" class="carousel-container">
     <div class="carousel">
@@ -224,6 +225,11 @@
     }
     if (getCookie("authorised") != "True") {
       document.location.href = "index.html";
+    }
+    while (true) {
+      var date = new Date();
+      var separator = ":"
+      document.getElementById("time").innerText = date.getHours.concat(separator.concat(date.getMinutes.concat(separator.concat(date.getSeconds))))
     }
     function logout() {
       document.cookie = "authorised=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
