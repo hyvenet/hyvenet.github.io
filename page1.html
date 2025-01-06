@@ -119,8 +119,24 @@
         background-color: #0b2838;
         color: #d7e7ea;
     }
-
     .coming-soon h3 {
+        margin-top: 30%;
+        padding: 0%;
+        font-size: 3vw;
+    }
+
+    .requests {
+        flex: 0 0 20%;
+        width: calc(20% - 6em);
+        text-align: center;
+        padding: 20px;
+        border-radius: 15px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        margin: 0 3em; /* Spacing between items */
+        background-color: #3f6275;
+        color: #d7e7ea;
+    }
+    .requests h3 {
         margin-top: 30%;
         padding: 0%;
         font-size: 3vw;
@@ -161,6 +177,10 @@
           <img src="images/music.png" alt="Image 3">
           <h3>Music</h3>
           <p>Songs to listen to.</p>
+        </div>
+        <div onclick="requests()" class="carousel-item requests">
+          <h3>Requests</h3>
+          <p>Have you made a game and want it added?</br>We support Scratch, HTML, PICO-8, and WebGL</p>
         </div>
         <div class="carousel-item coming-soon">
           <h3>Coming</br>Soon</h3>
@@ -265,6 +285,11 @@
       document.getElementById('carousel').style.display = 'none';
       document.getElementById('iframe').style.display = 'flex';
       document.getElementById('gameiframe').src = "https://hyvenet.github.io/audio.html"
+    }
+    function requests() {
+      document.getElementById('carousel').style.display = 'none';
+      document.getElementById('iframe').style.display = 'flex';
+      document.getElementById('gameiframe').src = "https://forms.gle/jDk4NJiLanBNtGUP7"
     }
   </script>
   <script src="https://cdn.jsdelivr.net/npm/appwrite@16.0.2"></script>
