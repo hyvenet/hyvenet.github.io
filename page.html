@@ -178,6 +178,11 @@
           <h3>Drift Chase</h3>
           <p>Drift a car to escape the police.</p>
         </div>
+        <div onclick="appel()" class="carousel-item">
+          <img src="images/appel.png" alt="Image 3">
+          <h3>Appel</h3>
+          <p>A fun platformer</p>
+        </div>
         <div onclick="music()" class="carousel-item">
           <img src="images/music.png" alt="Image 3">
           <h3>Music</h3>
@@ -290,6 +295,11 @@
       document.getElementById('carousel').style.display = 'none';
       document.getElementById('iframe').style.display = 'flex';
       document.getElementById('gameiframe').src = "https://games-2sh3.onrender.com/drift/"
+    }
+    function appel() {
+      document.getElementById('carousel').style.display = 'none';
+      document.getElementById('iframe').style.display = 'flex';
+      document.getElementById('gameiframe').src = "https://games-2sh3.onrender.com/appel/"
     }
     function music() {
       document.getElementById('carousel').style.display = 'none';
